@@ -1,10 +1,10 @@
-# hibernate-one-to-many
+# hibernate-many-to-many
 
 
 Dans ce projet, on veut représenter les données suivantes :
 [data](data.csv)
 
-On va donc implémenter trois tables et une relation one-to-many et une relation many-to-many :
+On va donc implémenter quatre tables et une relation one-to-many et une relation many-to-many :
 
 ![eer](eer.png)
 
