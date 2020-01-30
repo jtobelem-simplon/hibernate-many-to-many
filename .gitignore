@@ -27,6 +27,9 @@ hs_err_pid*
 .classpath
 .project
 
+# IJ specific config files
+.idea/
+
 # Ignore Gradle project-specific cache directory
 .gradle
 
