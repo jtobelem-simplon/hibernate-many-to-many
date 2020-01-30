@@ -22,38 +22,4 @@ public class Titre {
 	@ManyToOne
     @JoinColumn(name = "categorie", referencedColumnName = "id")
 	private Categorie categorie;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public Collection<Auteur> getAuteurs() {
-		return auteurs;
-	}
-
-	public void setAuteurs(Collection<Auteur> auteurs) {
-		this.auteurs = auteurs;
-	}
-
-	public Categorie getCategorie() {
-		return categorie;
-	}
-
-	public void setCategorie(Categorie categorie) {
-		this.categorie = categorie;
-	}
-
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-	
-	
 }
