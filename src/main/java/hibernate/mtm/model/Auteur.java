@@ -1,10 +1,12 @@
 package hibernate.mtm.model;
 
-import java.util.Collection;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,6 +26,8 @@ public class Auteur {
 	private String prenom;
 	
 	@ManyToMany
-	private Collection<Titre> ouvrages;
+	@JsonIgnoreProperties("auteurs")
+	// https://stackoverflow.com/questions/3325387/infinite-recursion-with-jackson-json-and-hibernate-jpa-issue
+	private Set<Titre> ouvrages;
 
 }
