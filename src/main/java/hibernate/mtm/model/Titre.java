@@ -1,8 +1,11 @@
 package hibernate.mtm.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
@@ -21,6 +24,7 @@ import lombok.Setter;
 public class Titre {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	private String nom;
@@ -34,9 +38,16 @@ public class Titre {
 	// Option2 - on ignore un côté de la relation lors de la sérialisation
 	// https://stackoverflow.com/questions/3325387/infinite-recursion-with-jackson-json-and-hibernate-jpa-issue
 	@JsonIgnoreProperties("ouvrages")
-	private Set<Auteur> auteurs;
+	private Set<Auteur> auteurs = new HashSet<>();
 	
 	@ManyToOne
     @JoinColumn(name = "categorie", referencedColumnName = "id")
 	private Categorie categorie;
+
+	public Titre(String nom, Categorie categorie) {
+		this.nom = nom;
+		this.categorie = categorie;
+	}
+	
+	
 }
