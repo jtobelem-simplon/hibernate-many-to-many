@@ -15,7 +15,7 @@ On va réaliser uniquement les controllers de base du backend. Grâce à la dép
 #### Postman
 
 On peut tester les endpoints de l'application avec la collection suivante : 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://documenter.getpostman.com/view/6373510/SWT5j1VH?version=latest)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://documenter.getpostman.com/view/6373510/SWT5j1LL?version=latest)
 
 *NB : on peut convertir simplement des requetes cURL sous postman avec le bouton import*
 
