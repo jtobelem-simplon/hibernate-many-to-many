@@ -12,7 +12,7 @@ On va donc implémenter quatre tables et une relation one-to-many et une relatio
 
 On va réaliser uniquement les controllers de base du backend. Grâce à la dépéndance `org.springframework.boot:spring-boot-starter-data-rest`, les fonctions du repository seront directement exposées comme endpoints de l'application. Donc pas besoin d'écrire le controller.
 
-On peut cependant implémenter les controllers que l'on souhaite si l'on a des besoins particuliers. Comme par exemple `AuteurController`.
+On peut cependant implémenter les controllers que l'on souhaite si l'on a des besoins particuliers. Comme par exemple `TitreController`.
 
 #### Data
 
@@ -33,3 +33,8 @@ La création de ce repo est faite à partir du guide officiel dans lequel on peu
 Les relations manyToMany peuvent se frotter à de nombreuses difficultés. Je vous recommande de lire des guides de bonnes pratiques, comme celui-ci :   
 <https://thoughts-on-java.org/best-practices-for-many-to-many-associations-with-hibernate-and-jpa/>
 
+Cet article de bonnes pratiques est intéressant aussi (surtout le point 3 sur les références cycliques) :   
+<https://medium.com/@manika09singh/hibernate-mistakes-to-avoid-f1636e4ee1d7>
+
+Pour ce point en particulier des références cycliques, je recommande cette solution :   
+<https://stackoverflow.com/a/39573255/10364570>
