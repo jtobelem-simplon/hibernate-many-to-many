@@ -19,22 +19,21 @@ import hibernate.mtm.repository.AuteurRepository;
 @RequestMapping(path = "/auteurs")
 public class AuteurController {
 
-@Autowired
-private AuteurRepository auteurRepository;
-	
+	@Autowired
+	private AuteurRepository auteurRepository;
+
 	@GetMapping
 	public @ResponseBody Iterable<Auteur> getAll() {
 		return auteurRepository.findAll();
 	}
-	
+
 	@GetMapping(path = "/{auteurID}")
 	public @ResponseBody ResponseEntity<Auteur> getOne(@PathVariable long auteurID) {
 		Optional<Auteur> optauteur = auteurRepository.findById(auteurID);
-		
+
 		if (optauteur.isPresent()) {
 			return ResponseEntity.ok(optauteur.get());
-		}
-		else {
+		} else {
 			return ResponseEntity.notFound().build();
 		}
 	}
