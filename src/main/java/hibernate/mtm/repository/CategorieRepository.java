@@ -1,9 +1,8 @@
 package hibernate.mtm.repository;
 
+import hibernate.mtm.model.Categorie;
 import org.springframework.data.repository.CrudRepository;
 
-import hibernate.mtm.model.Categorie;
-
-public interface CategorieRepository extends CrudRepository<Categorie, Long>{
+public interface CategorieRepository extends CrudRepository<Categorie, Long> {
 
 }

@@ -1,9 +1,8 @@
 package hibernate.mtm.repository;
 
+import hibernate.mtm.model.Auteur;
 import org.springframework.data.repository.CrudRepository;
 
-import hibernate.mtm.model.Auteur;
-
-public interface AuteurRepository extends CrudRepository<Auteur, Long>{
+public interface AuteurRepository extends CrudRepository<Auteur, Long> {
 
 }

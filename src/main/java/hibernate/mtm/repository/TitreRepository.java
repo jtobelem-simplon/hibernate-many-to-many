@@ -1,13 +1,12 @@
 package hibernate.mtm.repository;
 
-import java.util.Collection;
-
+import hibernate.mtm.model.Titre;
 import org.springframework.data.repository.CrudRepository;
 
-import hibernate.mtm.model.Titre;
+import java.util.Collection;
 
 public interface TitreRepository extends CrudRepository<Titre, Long> {
-	
-	Collection<Titre> findByNomLike(String nom);
+
+    Collection<Titre> findByNomLike(String nom);
 
 }

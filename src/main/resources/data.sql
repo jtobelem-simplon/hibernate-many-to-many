@@ -14,10 +14,10 @@ INSERT INTO db_livres.titre (id, categorie, nom) VALUES (3, 3, 'La Vie sauve');
 INSERT INTO db_livres.titre (id, categorie, nom) VALUES (4, 2, 'Contes italiens');
 INSERT INTO db_livres.titre (id, categorie, nom) VALUES (5, 3, 'Manifeste du surréalisme');
 
-INSERT INTO db_livres.auteur_ouvrages (auteurs_id, ouvrages_id) VALUES (1, 1);
-INSERT INTO db_livres.auteur_ouvrages (auteurs_id, ouvrages_id) VALUES (2, 1);
-INSERT INTO db_livres.auteur_ouvrages (auteurs_id, ouvrages_id) VALUES (3, 2);
-INSERT INTO db_livres.auteur_ouvrages (auteurs_id, ouvrages_id) VALUES (4, 3);
-INSERT INTO db_livres.auteur_ouvrages (auteurs_id, ouvrages_id) VALUES (5, 3);
-INSERT INTO db_livres.auteur_ouvrages (auteurs_id, ouvrages_id) VALUES (3, 4);
-INSERT INTO db_livres.auteur_ouvrages (auteurs_id, ouvrages_id) VALUES (1, 5);
+INSERT INTO db_livres.auteur_titres (auteurs_id, titres_id) VALUES (1, 1);
+INSERT INTO db_livres.auteur_titres (auteurs_id, titres_id) VALUES (2, 1);
+INSERT INTO db_livres.auteur_titres (auteurs_id, titres_id) VALUES (3, 2);
+INSERT INTO db_livres.auteur_titres (auteurs_id, titres_id) VALUES (4, 3);
+INSERT INTO db_livres.auteur_titres (auteurs_id, titres_id) VALUES (5, 3);
+INSERT INTO db_livres.auteur_titres (auteurs_id, titres_id) VALUES (3, 4);
+INSERT INTO db_livres.auteur_titres (auteurs_id, titres_id) VALUES (1, 5);
