@@ -11,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import javax.transaction.Transactional;
 import java.util.Arrays;
 
 /**
@@ -106,7 +105,7 @@ public class DataInitializer implements CommandLineRunner {
             }
 
         } catch (final Exception ex) {
-            logger.error("Exception while inserting mock data {}", ex);
+            logger.error("Exception while inserting mock data {0}", ex);
         }
     }
 
@@ -116,6 +115,24 @@ public class DataInitializer implements CommandLineRunner {
         categorieRepository.deleteAll();
     }
 
+
+    /**
+     * supprime le premier element de la liste
+     */
+    private void testDeleteCategorieFirst() {
+        if (categorieRepository.findAll().iterator().hasNext()) {
+            logger.info("\n******** Avant Delete ***********");
+            logCreated();
+            long id = categorieRepository.findAll().iterator().next().getId();
+            categorieRepository.deleteById(id);
+            logger.info("\n******** Après Delete ***********");
+            logCreated();
+        }
+    }
+
+    /**
+     * supprime le premier element de la liste
+     */
     private void testDeleteAuthorFirst() {
         if (auteurRepository.findAll().iterator().hasNext()) {
             logger.info("\n******** Avant Delete ***********");
@@ -127,6 +144,9 @@ public class DataInitializer implements CommandLineRunner {
         }
     }
 
+    /**
+     * supprime le premier element de la liste
+     */
     private void testDeleteTitreFirst() {
         if (titreRepository.findAll().iterator().hasNext()) {
             logger.info("\n******** Avant Delete ***********");
@@ -154,6 +174,7 @@ public class DataInitializer implements CommandLineRunner {
         logger.info("\n******** Data initialized ***********");
 
 //        testDeleteAuthorFirst();
-//        testDeleteTitreFirst();
+        testDeleteTitreFirst();
+//        testDeleteCategorieFirst();
     }
 }

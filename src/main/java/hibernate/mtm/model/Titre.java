@@ -25,13 +25,12 @@ public class Titre {
 
     private String nom;
 
-    // Pour supprimer des titres associés à des auteurs, deux options :
-    // **** Option1 - @ManyToMany(mappedBy="titres", cascade = CascadeType.REMOVE)
-    // **** Option2 - @OnDelete(action = OnDeleteAction.CASCADE) // utilise le mecanisme db : https://docs.jboss.org/hibernate/orm/5.2/javadocs/org/hibernate/annotations/OnDeleteAction.html
+    // Pour supprimer des titres associés à des auteurs (manyToMany), deux options à placer dans la classe qu'on veut pouvoir supprimer :
+    // **** Option1 - @OnDelete(action = OnDeleteAction.CASCADE) : utilise le mecanisme db : https://docs.jboss.org/hibernate/orm/5.2/javadocs/org/hibernate/annotations/OnDeleteAction.html
+    // **** Option2 - @ManyToMany(mappedBy="titres", cascade = CascadeType.REMOVE)
     // ?? https://thoughts-on-java.org/hibernate-tips-the-best-way-to-remove-entities-from-a-many-to-many-association/
     @ManyToMany(mappedBy = "titres")
     @OnDelete(action = OnDeleteAction.CASCADE)
-
     // Pour éviter des infos cycliques lors de la sérialisation, deux options
     // **** Option1 - on ne garde que les id d'un côté de la relation (et pas tout l'objet) https://stackoverflow.com/questions/33475222/spring-boot-jpa-json-without-nested-object-with-onetomany-relation
 //	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
@@ -40,9 +39,13 @@ public class Titre {
     @JsonIgnoreProperties("titres")
     private Set<Auteur> auteurs = new HashSet<>();
 
+    // Pour supprimer une categorie associée à des titres (oneToMany), trois options :
+    // **** Option1 - @OnDelete(action = OnDeleteAction.CASCADE) : utilise le mecanisme db : https://docs.jboss.org/hibernate/orm/5.2/javadocs/org/hibernate/annotations/OnDeleteAction.html
+    // **** Option2 - @ManyToOne(cascade = CascadeType.REMOVE) dans la classe categorie
+    // **** Option3 - @OneToMany(mappedBy = "categorie", orphanRemoval = true) dans la classe categorie
     @ManyToOne
-    @JoinColumn(name = "categorie", referencedColumnName = "id")
     @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "categorie", referencedColumnName = "id")
     private Categorie categorie;
 
     public Titre(String nom, Categorie categorie) {

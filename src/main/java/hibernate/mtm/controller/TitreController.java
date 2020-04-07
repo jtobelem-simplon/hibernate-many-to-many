@@ -28,7 +28,7 @@ public class TitreController {
     ResponseEntity<Titre> getOne(@PathVariable long titreID) {
         Optional<Titre> optTitre = titreRepository.findById(titreID);
 
-		return optTitre.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        return optTitre.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
 //	@PatchMapping(path = "/{titreID}")
