@@ -41,7 +41,7 @@ public class Titre {
 
     // Pour supprimer une categorie associée à des titres (oneToMany), trois options :
     // **** Option1 - @OnDelete(action = OnDeleteAction.CASCADE) : utilise le mecanisme db : https://docs.jboss.org/hibernate/orm/5.2/javadocs/org/hibernate/annotations/OnDeleteAction.html
-    // **** Option2 - @ManyToOne(cascade = CascadeType.REMOVE) dans la classe categorie
+    // **** Option2 - @OneToMany(mappedBy = "categorie", cascade = CascadeType.REMOVE) dans la classe categorie
     // **** Option3 - @OneToMany(mappedBy = "categorie", orphanRemoval = true) dans la classe categorie
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)

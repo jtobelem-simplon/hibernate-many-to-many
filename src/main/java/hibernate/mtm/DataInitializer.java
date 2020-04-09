@@ -6,6 +6,7 @@ import hibernate.mtm.model.Titre;
 import hibernate.mtm.repository.AuteurRepository;
 import hibernate.mtm.repository.CategorieRepository;
 import hibernate.mtm.repository.TitreRepository;
+import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -19,6 +20,7 @@ import java.util.Arrays;
  *
  * @author Josselin Tobelem
  */
+@AllArgsConstructor
 @Component
 public class DataInitializer implements CommandLineRunner {
 
@@ -27,13 +29,6 @@ public class DataInitializer implements CommandLineRunner {
     private final AuteurRepository auteurRepository;
     private final CategorieRepository categorieRepository;
     private final TitreRepository titreRepository;
-
-    public DataInitializer(final AuteurRepository auteurRepository, final CategorieRepository categorieRepository,
-                           final TitreRepository titreRepository) {
-        this.auteurRepository = auteurRepository;
-        this.categorieRepository = categorieRepository;
-        this.titreRepository = titreRepository;
-    }
 
     /**
      * Crée des categories, des titres et des auteurs et les fait persister en base
