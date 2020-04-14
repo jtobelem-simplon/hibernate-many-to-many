@@ -36,7 +36,9 @@ public class Titre {
 //	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 //	@JsonIdentityReference(alwaysAsId = true)
     // **** Option2 - on ignore un côté de la relation lors de la sérialisation https://stackoverflow.com/questions/3325387/infinite-recursion-with-jackson-json-and-hibernate-jpa-issue
-    @JsonIgnoreProperties("titres")
+    // **** Option3 - jsconBackReference : pas très interessant
+    // **** Option4 - jsonIgnore : ignore competement l'attribut lors de la serialisation
+//    @JsonIgnoreProperties("titres")
     private Set<Auteur> auteurs = new HashSet<>();
 
     // Pour supprimer une categorie associée à des titres (oneToMany), trois options :

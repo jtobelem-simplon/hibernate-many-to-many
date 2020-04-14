@@ -169,7 +169,7 @@ public class DataInitializer implements CommandLineRunner {
         logger.info("\n******** Data initialized ***********");
 
 //        testDeleteAuthorFirst();
-        testDeleteTitreFirst();
+//        testDeleteTitreFirst();
 //        testDeleteCategorieFirst();
     }
 }
